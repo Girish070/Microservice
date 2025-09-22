@@ -48,7 +48,7 @@ func (r *RedisRepo) Insert(ctx context.Context, order model.Order) error {
 
 var ErrNotExist = errors.New("order does not exist")
 
-func (r *RedisRepo) findById(ctx context.Context, id uint64) (model.Order, error) {
+func (r *RedisRepo) FindById(ctx context.Context, id uint64) (model.Order, error) {
 	key := orderIdKey(id)
 
 	value, err := r.Client.Get(ctx, key).Result()
