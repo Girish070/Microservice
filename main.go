@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	app := application.New()
+	app := application.New(application.LoadConfig())
 	ctx, cancle := signal.NotifyContext(context.Background(),os.Interrupt)
 	defer cancle()
 	err  := app.Start(ctx)
